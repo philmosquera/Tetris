@@ -1,3 +1,4 @@
+package gameLogic;
 import board.Tile;
 import pieces.ActivePiece;
 import pieces.PiecePicker;
@@ -23,11 +24,12 @@ public class GameBoard {
 		currentPiece = piecePicker.getNextPiece();
 	}
 
+	//move piece down 1
 	public void dropPiece() {
 
 	}
 	
-	public Tile[][] getBoard() {
+	public static Tile[][] getBoard() {
 		return board;
 	}
 }
