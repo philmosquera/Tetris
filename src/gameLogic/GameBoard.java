@@ -6,7 +6,7 @@ import pieces.PiecePicker;
 public class GameBoard {
 
 	private static Tile[][] board = new Tile[10][22];
-	private ActivePiece currentPiece;
+	private static ActivePiece currentPiece;
 	private PiecePicker piecePicker;
 
 	public GameBoard() {
@@ -31,5 +31,9 @@ public class GameBoard {
 	
 	public static Tile[][] getBoard() {
 		return board;
+	}
+	
+	public static ActivePiece getActivePiece() {
+		return currentPiece;
 	}
 }
