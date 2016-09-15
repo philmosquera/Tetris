@@ -1,25 +1,27 @@
 package gui;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import gameLogic.GameLoop;
 
 public class GameFrame extends JFrame{
 
-	private GamePanel gameFrame;
+	private GamePanel gamePanel;
 	
 	public GameFrame() {
 		super("Tetris");
 		
-		gameFrame = new GamePanel();
-		add(gameFrame);
+		gamePanel = new GamePanel();
+		add(gamePanel);
 		addKeyListener(new KeyInputListener());
 		pack();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
-	
-	public static void main(String[] args) {
-		new GameFrame();
-		
+
+	public GamePanel getGamePanel() {
+		return gamePanel;
 	}
 	
 }
