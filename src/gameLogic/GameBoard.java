@@ -26,7 +26,7 @@ public class GameBoard {
 
 	//move piece down 1
 	public void dropPiece() {
-
+		currentPiece.moveDown();
 	}
 	
 	public static Tile[][] getBoard() {

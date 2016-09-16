@@ -23,4 +23,10 @@ public class ActivePiece {
 	public Color getColor() {
 		return pieceColor;
 	}
+
+	public void moveDown() {
+		for (int i = 0; i < squares.size(); i++) {
+			squares.get(i).y += 1;
+		}
+	}
 }
