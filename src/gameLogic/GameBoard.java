@@ -9,10 +9,19 @@ public class GameBoard {
 	private static ActivePiece currentPiece;
 	private PiecePicker piecePicker;
 
-	public GameBoard() {
+	private static GameBoard instance;
+	
+	private GameBoard() {
 		resetBoard();
 	}
 
+	public static GameBoard getInstance() {
+		if (instance == null) {
+			instance = new GameBoard();
+		}
+		return instance;
+	}
+	
 	public void resetBoard() {
 		for (int x = 0; x < board.length; x++) {
 			for (int y = 0; y < board[x].length; y++) {
@@ -27,6 +36,14 @@ public class GameBoard {
 	//move piece down 1
 	public void dropPiece() {
 		currentPiece.moveDown();
+	}
+	
+	public void movePieceLeft() {
+		
+	}
+	
+	public void movePieceRight() {
+		
 	}
 	
 	public static Tile[][] getBoard() {

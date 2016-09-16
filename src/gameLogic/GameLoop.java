@@ -6,7 +6,7 @@ public class GameLoop implements Runnable {
 
 	private static GamePanel gamePanel;
 	private boolean isRunning = false;
-	private GameBoard gameBoard = new GameBoard();
+	private GameBoard gameBoard = GameBoard.getInstance();
 	private Thread gameThread;
 
 	public GameLoop() {
@@ -25,7 +25,7 @@ public class GameLoop implements Runnable {
 
 	@Override
 	public void run() {
-
+		sleep(1000);
 		while (isRunning) {
 			long currentTime = System.currentTimeMillis();
 			System.out.println("Loop");
