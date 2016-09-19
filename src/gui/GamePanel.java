@@ -18,14 +18,14 @@ public class GamePanel extends JPanel {
 	private static int scale = 30;
 
 	private static GamePanel instance;
-	
+
 	public static GamePanel getInstance() {
 		if (instance == null) {
 			instance = new GamePanel();
 		}
 		return instance;
 	}
-	
+
 	protected GamePanel() {
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		instance = this;
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel {
 		for (int x = 0; x < gameBoard.length; x++) {
 			for (int y = 0; y < gameBoard[x].length; y++) {
 				g.setColor(Color.BLACK);
-				g.drawRect(x * scale, (y-2) * scale, scale, scale);
+				g.drawRect(x * scale, (y - 2) * scale, scale, scale);
 			}
 		}
 	}
@@ -54,7 +54,7 @@ public class GamePanel extends JPanel {
 		for (int x = 0; x < gameBoard.length; x++) {
 			for (int y = 0; y < gameBoard[x].length; y++) {
 				g.setColor(gameBoard[x][y].getCurrentColor());
-				g.fillRect(x * scale, (y-2) * scale, scale, scale);
+				g.fillRect(x * scale, (y - 2) * scale, scale, scale);
 			}
 		}
 	}

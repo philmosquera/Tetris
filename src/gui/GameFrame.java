@@ -5,13 +5,13 @@ import javax.swing.JPanel;
 
 import gameLogic.GameLoop;
 
-public class GameFrame extends JFrame{
+public class GameFrame extends JFrame {
 
 	private GamePanel gamePanel;
-	
+
 	public GameFrame() {
 		super("Tetris");
-		
+
 		gamePanel = new GamePanel();
 		add(gamePanel);
 		addKeyListener(new KeyInputListener());
@@ -23,5 +23,5 @@ public class GameFrame extends JFrame{
 	public GamePanel getGamePanel() {
 		return gamePanel;
 	}
-	
+
 }

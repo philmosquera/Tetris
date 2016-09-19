@@ -1,4 +1,5 @@
 package gameLogic;
+
 import gui.GameFrame;
 import gui.GamePanel;
 
@@ -47,7 +48,7 @@ public class GameLoop implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		GameFrame mainFrame = new GameFrame();
 		gamePanel = mainFrame.getGamePanel();

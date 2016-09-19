@@ -19,7 +19,7 @@ public class PiecePicker {
 	}
 
 	public ActivePiece getNextPiece() {
-		
+
 		if (listOfPieces.size() == 0) {
 			reinstatiateList();
 		}
