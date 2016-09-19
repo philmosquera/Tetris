@@ -32,7 +32,7 @@ public class GameLoop implements Runnable {
 			// game logic
 			// move piece down 1 square
 			// redraw everything
-			gameBoard.dropPiece();
+			gameBoard.movePieceDown();
 			gamePanel.repaint();
 			sleep(1000);
 		}

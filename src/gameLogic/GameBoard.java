@@ -34,7 +34,7 @@ public class GameBoard {
 	}
 
 	//move piece down 1
-	public void dropPiece() {
+	public void movePieceDown() {
 		currentPiece.moveDown();
 	}
 	
