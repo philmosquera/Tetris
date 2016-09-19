@@ -3,6 +3,8 @@ package gui;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import gameLogic.GameBoard;
+
 public class KeyInputListener implements KeyListener {
 
 	@Override
@@ -17,12 +19,16 @@ public class KeyInputListener implements KeyListener {
 		switch (e.getKeyCode()) {
 		case 37:
 			System.out.println("left");
+			GameBoard.getInstance().movePieceLeft();
+			GamePanel.getInstance().repaint();
 			break;
 		case 38:
 			System.out.println("up");
 			break;
 		case 39:
 			System.out.println("right");
+			GameBoard.getInstance().movePieceRight();
+			GamePanel.getInstance().repaint();
 			break;
 		case 40:
 			System.out.println("down");

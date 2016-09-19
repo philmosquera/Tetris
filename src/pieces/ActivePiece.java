@@ -29,4 +29,16 @@ public class ActivePiece {
 			squares.get(i).y += 1;
 		}
 	}
+
+	public void moveLeft() {
+		for (int i = 0; i < squares.size(); i++) {
+			squares.get(i).x -= 1;
+		}
+	}
+
+	public void moveRight() {
+		for (int i = 0; i < squares.size(); i++) {
+			squares.get(i).x += 1;
+		}
+	}
 }

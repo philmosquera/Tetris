@@ -1,4 +1,7 @@
 package gameLogic;
+import java.awt.Point;
+import java.util.Vector;
+
 import board.Tile;
 import pieces.ActivePiece;
 import pieces.PiecePicker;
@@ -39,11 +42,29 @@ public class GameBoard {
 	}
 	
 	public void movePieceLeft() {
+		Vector<Point> points = currentPiece.getSquares();
+		boolean canMove = true;
+		for (Point point : points) {
+			if (point.getX() - 1 < 0) {
+				canMove = false;
+				break;
+			}
+		}
 		
+		if(canMove) currentPiece.moveLeft();
 	}
 	
 	public void movePieceRight() {
+		Vector<Point> points = currentPiece.getSquares();
+		boolean canMove = true;
+		for (Point point : points) {
+			if (point.getX() + 1 > 9) {
+				canMove = false;
+				break;
+			}
+		}
 		
+		if(canMove) currentPiece.moveRight();
 	}
 	
 	public static Tile[][] getBoard() {
