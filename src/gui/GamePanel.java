@@ -17,8 +17,18 @@ public class GamePanel extends JPanel {
 	private static final int HEIGHT = 700;
 	private static int scale = 30;
 
-	public GamePanel() {
+	private static GamePanel instance;
+	
+	public static GamePanel getInstance() {
+		if (instance == null) {
+			instance = new GamePanel();
+		}
+		return instance;
+	}
+	
+	protected GamePanel() {
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		instance = this;
 	}
 
 	@Override
