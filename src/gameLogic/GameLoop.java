@@ -29,7 +29,6 @@ public class GameLoop implements Runnable {
 		sleep(1000);
 		while (isRunning) {
 			long currentTime = System.currentTimeMillis();
-			System.out.println("Loop");
 			// game logic
 			// move piece down 1 square
 			// redraw everything

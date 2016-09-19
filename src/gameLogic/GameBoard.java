@@ -40,7 +40,34 @@ public class GameBoard {
 
 	// move piece down 1
 	public void movePieceDown() {
-		currentPiece.moveDown();
+
+		Vector<Point> points = currentPiece.getSquares();
+		boolean canMoveDown = true;
+		for (Point point : points) {
+			try {
+				if (board[(int) point.getX()][(int) (point.getY() + 1)].getStatus() == Status.OCCUPIED) {
+					canMoveDown = false;
+					break;
+				}
+			} catch (ArrayIndexOutOfBoundsException e) {
+				canMoveDown = false;
+			}
+		}
+
+		if (canMoveDown)
+			currentPiece.moveDown();
+		else {
+			turnPieceIntoBoard();
+			currentPiece = piecePicker.getNextPiece();
+		}
+	}
+
+	private void turnPieceIntoBoard() {
+		Vector<Point> points = currentPiece.getSquares();
+		for (Point point : points) {
+			board[(int) point.getX()][(int) point.getY()].setStatus(Status.OCCUPIED);
+			board[(int) point.getX()][(int) point.getY()].setCurrentColor(currentPiece.getColor());
+		}
 	}
 
 	public void movePieceLeft() {
