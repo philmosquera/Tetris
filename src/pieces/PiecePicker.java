@@ -23,7 +23,6 @@ public class PiecePicker {
 		if (listOfPieces.size() == 0) {
 			reinstatiateList();
 		}
-		System.out.println(listOfPieces.toString());
 		Random myRandom = new Random(System.currentTimeMillis());
 		int nextIndex = myRandom.nextInt(listOfPieces.size());
 
