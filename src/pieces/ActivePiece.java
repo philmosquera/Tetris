@@ -12,21 +12,32 @@ public class ActivePiece {
 	private Color pieceColor;
 
 	protected ActivePiece(int nextPiece) {
+		nextPiece = 0;
 
-		Random myRandom = new Random();
-		switch (myRandom.nextInt(3)) {
+		switch (nextPiece) {
 		case 0:
-			pieceColor = Color.GREEN;
+			pieceColor = Color.CYAN;
+			squares.addAll(PieceCoordinates.getIPiece());
 			break;
 		case 1:
-			pieceColor = Color.BLUE;
+			pieceColor = Color.YELLOW;
 			break;
-		default:
+		case 2:
+			pieceColor = Color.PINK;
+			break;
+		case 3:
+			pieceColor = Color.GREEN;
+			break;
+		case 4:
 			pieceColor = Color.RED;
 			break;
+		case 5:
+			pieceColor = Color.BLUE;
+			break;
+		case 6:
+			pieceColor = Color.ORANGE;
+			break;
 		}
-		squares.add(new Point(5, 10));
-
 	}
 
 	public Vector<Point> getSquares() {
