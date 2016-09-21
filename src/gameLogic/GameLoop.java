@@ -1,5 +1,6 @@
 package gameLogic;
 
+import board.GameBoard;
 import gui.GameFrame;
 import gui.GamePanel;
 
@@ -8,7 +9,7 @@ public class GameLoop implements Runnable {
 	private static GamePanel gamePanel;
 	private boolean isRunning = false;
 	private GameBoard gameBoard = GameBoard.getInstance();
-	private Thread gameThread;
+	private static Thread gameThread;
 
 	public GameLoop() {
 	}
@@ -21,6 +22,10 @@ public class GameLoop implements Runnable {
 
 	public void stop() {
 		isRunning = false;
+		gameThread.interrupt();
+	}
+	
+	public static void interruptLock() {
 		gameThread.interrupt();
 	}
 
@@ -43,8 +48,7 @@ public class GameLoop implements Runnable {
 		try {
 			Thread.sleep(timeToSleep);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			sleep(timeToSleep);
 		}
 	}
 
