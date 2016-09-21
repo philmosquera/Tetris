@@ -2,8 +2,8 @@ package pieces;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.awt.geom.Point2D;
-import java.util.Random;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Vector;
 
 public class ActivePiece {
@@ -64,5 +64,15 @@ public class ActivePiece {
 		for (int i = 0; i < squares.size(); i++) {
 			squares.get(i).x += 1;
 		}
+	}
+
+	public Set<Integer> getYCoordinates() {
+		Set<Integer> coords = new HashSet<Integer>();
+		
+		for (Point point : squares) {
+			coords.add((int) point.getY());
+		}
+		System.out.println(coords);
+		return coords;
 	}
 }
