@@ -3,7 +3,7 @@ package gui;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import gameLogic.GameBoard;
+import board.GameBoard;
 
 public class KeyInputListener implements KeyListener {
 

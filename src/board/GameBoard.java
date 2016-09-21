@@ -1,10 +1,10 @@
-package gameLogic;
+package board;
 
 import java.awt.Point;
+import java.util.Iterator;
+import java.util.TreeSet;
 import java.util.Vector;
 
-import board.Status;
-import board.Tile;
 import pieces.ActivePiece;
 import pieces.PiecePicker;
 
@@ -60,6 +60,7 @@ public class GameBoard {
 			turnPieceIntoBoard();
 			currentPiece = piecePicker.getNextPiece();
 		}
+
 	}
 
 	private void turnPieceIntoBoard() {
@@ -68,6 +69,7 @@ public class GameBoard {
 			board[(int) point.getX()][(int) point.getY()].setStatus(Status.OCCUPIED);
 			board[(int) point.getX()][(int) point.getY()].setCurrentColor(currentPiece.getColor());
 		}
+		checkForClear();
 	}
 
 	public void movePieceLeft() {
@@ -104,5 +106,32 @@ public class GameBoard {
 
 	public static ActivePiece getActivePiece() {
 		return currentPiece;
+	}
+
+	/*
+	 * Can optimise this to only check the lines where the piece was. Also need
+	 * to check for multiple lines.
+	 */
+	private void checkForClear() {
+		int numOfOccupied, numOfFree;
+		TreeSet<Integer> linesToCheck = currentPiece.getYCoordinates();
+
+		for (Iterator<Integer> iterator = linesToCheck.descendingIterator(); iterator.hasNext();) {
+			Integer y = (Integer) iterator.next();
+			numOfOccupied = 0;
+			numOfFree = 0;
+			for (int x = 0; x < board.length; x++) {
+				if (board[x][y].getStatus() == Status.OCCUPIED)
+					numOfOccupied++;
+				if (board[x][y].getStatus() == Status.FREE)
+					numOfFree++;
+			}
+			System.out.printf("Line %d has %d free and %d occupied\n", y, numOfFree, numOfOccupied);
+			if (numOfOccupied == 10)
+				System.out.println("Clear");
+			if (numOfFree == 10)
+				break;
+		}
+
 	}
 }

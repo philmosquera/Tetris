@@ -2,8 +2,9 @@ package pieces;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.Vector;
 
 public class ActivePiece {
@@ -66,13 +67,12 @@ public class ActivePiece {
 		}
 	}
 
-	public Set<Integer> getYCoordinates() {
-		Set<Integer> coords = new HashSet<Integer>();
+	public TreeSet<Integer> getYCoordinates() {
+		TreeSet<Integer> coords = new TreeSet<Integer>();
 		
 		for (Point point : squares) {
 			coords.add((int) point.getY());
 		}
-		System.out.println(coords);
 		return coords;
 	}
 }

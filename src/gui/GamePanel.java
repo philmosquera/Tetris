@@ -7,8 +7,8 @@ import java.awt.Point;
 
 import javax.swing.JPanel;
 
+import board.GameBoard;
 import board.Tile;
-import gameLogic.GameBoard;
 import pieces.ActivePiece;
 
 public class GamePanel extends JPanel {
