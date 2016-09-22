@@ -13,7 +13,7 @@ public class ActivePiece {
 	private Color pieceColor;
 
 	protected ActivePiece(int nextPiece) {
-		nextPiece = 0;
+		nextPiece = 4;
 
 		switch (nextPiece) {
 		case 0:
@@ -22,21 +22,27 @@ public class ActivePiece {
 			break;
 		case 1:
 			pieceColor = Color.YELLOW;
+			squares.addAll(PieceCoordinates.getOPiece());
 			break;
 		case 2:
 			pieceColor = Color.PINK;
+			squares.addAll(PieceCoordinates.getTPiece());
 			break;
 		case 3:
 			pieceColor = Color.GREEN;
+			squares.addAll(PieceCoordinates.getSPiece());
 			break;
 		case 4:
 			pieceColor = Color.RED;
+			squares.addAll(PieceCoordinates.getZPiece());
 			break;
 		case 5:
 			pieceColor = Color.BLUE;
+			squares.addAll(PieceCoordinates.getJPiece());
 			break;
 		case 6:
 			pieceColor = Color.ORANGE;
+			squares.addAll(PieceCoordinates.getLPiece());
 			break;
 		}
 	}
