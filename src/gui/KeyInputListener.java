@@ -17,16 +17,22 @@ public class KeyInputListener implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
+		case 32:
+			// GameBoard.getInstance().dropPiece();
 		case 37:
 			GameBoard.getInstance().movePieceLeft();
-			GameLoop.interruptLock();
+			if (GameBoard.getInstance().isPieceGrounded()) {
+				GameLoop.interruptLock();
+			}
 			GamePanel.getInstance().repaint();
 			break;
 		case 38:
 			break;
 		case 39:
 			GameBoard.getInstance().movePieceRight();
-			GameLoop.interruptLock();
+			if (GameBoard.getInstance().isPieceGrounded()) {
+				GameLoop.interruptLock();
+			}
 			GamePanel.getInstance().repaint();
 			break;
 		case 40:

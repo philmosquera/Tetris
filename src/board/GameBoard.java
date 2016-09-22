@@ -133,5 +133,19 @@ public class GameBoard {
 				break;
 		}
 
+	public boolean isPieceGrounded() {
+		Vector<Point> points = currentPiece.getSquares();
+		for (Point point : points) {
+			try {
+				if (board[point.x][point.y + 1].getStatus() == Status.OCCUPIED) {
+					System.out.println("Grounded");
+					return true;
+				}
+			} catch (ArrayIndexOutOfBoundsException e) {
+				return true;
+			}
+		}
+		System.out.println("Not grounded");
+		return false;
 	}
 }
