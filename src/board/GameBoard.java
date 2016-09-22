@@ -1,6 +1,7 @@
 package board;
 
 import java.awt.Point;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.Vector;
@@ -115,6 +116,7 @@ public class GameBoard {
 	private void checkForClear() {
 		int numOfOccupied, numOfFree;
 		TreeSet<Integer> linesToCheck = currentPiece.getYCoordinates();
+		Vector<Integer> linesToClear = new Vector<Integer>();
 
 		for (Iterator<Integer> iterator = linesToCheck.descendingIterator(); iterator.hasNext();) {
 			Integer y = (Integer) iterator.next();
@@ -126,26 +128,40 @@ public class GameBoard {
 				if (board[x][y].getStatus() == Status.FREE)
 					numOfFree++;
 			}
-			System.out.printf("Line %d has %d free and %d occupied\n", y, numOfFree, numOfOccupied);
+			// System.out.printf("Line %d has %d free and %d occupied\n", y,
+			// numOfFree, numOfOccupied);
 			if (numOfOccupied == 10)
-				System.out.println("Clear");
+				linesToClear.add(y);
 			if (numOfFree == 10)
 				break;
 		}
+
+		// the lines to clear are now calculated. Lines are ordered with highest
+		// first.
+		Collections.reverse(linesToClear);
+
+		// clear the lines
+		for (Integer yCoord : linesToClear) {
+			for (int x = 0; x < board.length; x++) {
+				for (int y = yCoord; y > 0; y--) {
+					board[x][y].setStatus(board[x][y - 1].getStatus());
+				}
+			}
+		}
+
+	}
 
 	public boolean isPieceGrounded() {
 		Vector<Point> points = currentPiece.getSquares();
 		for (Point point : points) {
 			try {
 				if (board[point.x][point.y + 1].getStatus() == Status.OCCUPIED) {
-					System.out.println("Grounded");
 					return true;
 				}
 			} catch (ArrayIndexOutOfBoundsException e) {
 				return true;
 			}
 		}
-		System.out.println("Not grounded");
 		return false;
 	}
 }
