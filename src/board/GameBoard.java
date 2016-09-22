@@ -77,7 +77,9 @@ public class GameBoard {
 		Vector<Point> points = currentPiece.getSquares();
 		boolean canMove = true;
 		for (Point point : points) {
-			if (point.getX() - 1 < 0) {
+			// this if shouldn't through an ArrayIndexOutOfBounds due to the
+			// order of evaluation
+			if (point.x - 1 < 0 || board[point.x - 1][point.y].getStatus() == Status.OCCUPIED) {
 				canMove = false;
 				break;
 			}
@@ -91,7 +93,9 @@ public class GameBoard {
 		Vector<Point> points = currentPiece.getSquares();
 		boolean canMove = true;
 		for (Point point : points) {
-			if (point.getX() + 1 > 9) {
+			// this if shouldn't through an ArrayIndexOutOfBounds due to the
+			// order of evaluation
+			if (point.x + 1 > 9 || board[point.x + 1][point.y].getStatus() == Status.OCCUPIED) {
 				canMove = false;
 				break;
 			}
