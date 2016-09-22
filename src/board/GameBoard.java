@@ -46,7 +46,7 @@ public class GameBoard {
 		boolean canMoveDown = true;
 		for (Point point : points) {
 			try {
-				if (board[(int) point.getX()][(int) (point.getY() + 1)].getStatus() == Status.OCCUPIED) {
+				if (board[point.x][point.y + 1].getStatus() == Status.OCCUPIED) {
 					canMoveDown = false;
 					break;
 				}
@@ -67,8 +67,8 @@ public class GameBoard {
 	private void turnPieceIntoBoard() {
 		Vector<Point> points = currentPiece.getSquares();
 		for (Point point : points) {
-			board[(int) point.getX()][(int) point.getY()].setStatus(Status.OCCUPIED);
-			board[(int) point.getX()][(int) point.getY()].setCurrentColor(currentPiece.getColor());
+			board[point.x][point.y].setStatus(Status.OCCUPIED);
+			board[point.x][point.y].setCurrentColor(currentPiece.getColor());
 		}
 		checkForClear();
 	}
