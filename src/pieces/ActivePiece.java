@@ -11,9 +11,10 @@ public class ActivePiece {
 
 	private Vector<Point> squares = new Vector<Point>(4);
 	private Color pieceColor;
+	private int currentPieceType;
 
 	protected ActivePiece(int nextPiece) {
-		nextPiece = 4;
+		currentPieceType = nextPiece;
 
 		switch (nextPiece) {
 		case 0:
