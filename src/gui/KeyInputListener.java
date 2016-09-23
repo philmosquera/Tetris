@@ -20,8 +20,7 @@ public class KeyInputListener implements KeyListener {
 		case 32:
 			// GameBoard.getInstance().dropPiece();
 		case 37:
-			GameBoard.getInstance().movePieceLeft();
-			if (GameBoard.getInstance().isPieceGrounded()) {
+			if (GameBoard.getInstance().isPieceGrounded() && GameBoard.getInstance().movePieceLeft()) {
 				GameLoop.interruptLock();
 			}
 			GamePanel.getInstance().repaint();
@@ -29,8 +28,7 @@ public class KeyInputListener implements KeyListener {
 		case 38:
 			break;
 		case 39:
-			GameBoard.getInstance().movePieceRight();
-			if (GameBoard.getInstance().isPieceGrounded()) {
+			if (GameBoard.getInstance().isPieceGrounded() && GameBoard.getInstance().movePieceRight()) {
 				GameLoop.interruptLock();
 			}
 			GamePanel.getInstance().repaint();
