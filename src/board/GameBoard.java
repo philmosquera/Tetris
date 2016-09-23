@@ -73,7 +73,12 @@ public class GameBoard {
 		checkForClear();
 	}
 
-	public void movePieceLeft() {
+	/**
+	 * 
+	 * @return <b>True</b> if the piece can and has moved left. </br>
+	 * <b>False</b> if the piece cannot and has not moved left.
+	 */
+	public boolean movePieceLeft() {
 		Vector<Point> points = currentPiece.getSquares();
 		boolean canMove = true;
 		for (Point point : points) {
@@ -87,9 +92,16 @@ public class GameBoard {
 
 		if (canMove)
 			currentPiece.moveLeft();
+		
+		return canMove;
 	}
 
-	public void movePieceRight() {
+	/**
+	 * 
+	 * @return <b>True</b> if the piece can and has moved right. </br>
+	 * <b>False</b> if the piece cannot and has not moved right.
+	 */
+	public boolean movePieceRight() {
 		Vector<Point> points = currentPiece.getSquares();
 		boolean canMove = true;
 		for (Point point : points) {
@@ -103,6 +115,8 @@ public class GameBoard {
 
 		if (canMove)
 			currentPiece.moveRight();
+		
+		return canMove;
 	}
 
 	public static Tile[][] getBoard() {
